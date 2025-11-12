@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.name | dump}}
+  description: ${{values.description | dump}}
+  annotations:
+    #github.com/project-slug: 
+    dev.azure.com/project-repo: ${{ (values.project) + "/" + ( values.name) }}
+    sonarqube.org/project-key: ${{ values.name }}
+    backstage.io/techdocs-ref: dir:./doc
+spec:
+  type: bff
+  lifecycle: development
+  owner: ${{values.owner | dump}}

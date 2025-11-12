@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "performance-analyzer-ai"
+version = "0.1.0"
+description = "API para analizar resultados de performance (K6/JMeter), generar summary unificado y producir informe ejecutivo con IA."
+authors = ["Juan Felipe Serna <tu.correo@empresa.com>"]
+readme = "README.md"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+fastapi = "^0.115.0"
+uvicorn = "^0.30.6"
+pydantic = "^2.9.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+coverage = "^7.6.1"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

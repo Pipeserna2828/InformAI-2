@@ -1,0 +1,23 @@
+# Envs
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Logs / temporales
+*.log
+tmp/
+reports/
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Sonar caches
+.sonar/
+.scannerwork/
