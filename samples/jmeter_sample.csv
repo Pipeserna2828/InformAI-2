@@ -1,0 +1,5 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,success,bytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1731000000000,210,GET /users,200,OK,Thread Group 1-1,true,512,1,1,200,0,10
+1731000000500,190,GET /users,200,OK,Thread Group 1-1,true,480,1,1,185,0,10
+1731000001000,820,POST /orders,500,Internal Error,Thread Group 1-1,false,400,1,1,800,0,10
+1731000001500,250,GET /users,200,OK,Thread Group 1-1,true,490,1,1,240,0,10

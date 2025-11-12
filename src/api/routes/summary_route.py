@@ -7,15 +7,16 @@ from src.domain.summary_contract import AnalyzeResponse
 
 router = APIRouter()
 
-try:
-    MAX_MB = int(os.getenv("MAX_UPLOAD_MB", "50"))
-except ValueError:
-    MAX_MB = 50
+def _max_mb() -> int:
+    try:
+        return int(os.getenv("MAX_UPLOAD_MB", "50"))
+    except ValueError:
+        return 50
 
 @router.post("/summary", response_model=AnalyzeResponse)
 async def summary(file: UploadFile):
     if not file:
-        return problem(400, "Archivo requerido", "Adjunta un único archivo.")
+        return problem(400, "Archivo requerido", "Adjunta un archivo JSON (k6) o CSV (JMeter).")
 
     if file.content_type not in ("application/json", "text/csv", "application/vnd.ms-excel"):
         return problem(415, "Tipo no soportado",
@@ -23,9 +24,9 @@ async def summary(file: UploadFile):
                        {"content_type": file.content_type})
 
     content = await file.read()
-    if len(content) > MAX_MB * 1024 * 1024:
+    if len(content) > _max_mb() * 1024 * 1024:
         return problem(413, "Archivo demasiado grande",
-                       f"Máximo permitido: {MAX_MB}MB.",
+                       f"Tamaño máximo permitido: {_max_mb()} MB.",
                        {"size_bytes": len(content)})
 
     try:

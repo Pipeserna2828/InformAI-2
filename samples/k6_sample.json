@@ -1,0 +1,18 @@
+{
+  "root_group": {
+    "name": "",
+    "path": "",
+    "id": "d41d8cd98f00b204e9800998ecf8427e",
+    "groups": {},
+    "checks": {
+      "user.UserService/CreateUser OK": { "fails": 0, "passes": 120 },
+      "products.ProductService/CreateProduct OK": { "fails": 3, "passes": 117 }
+    }
+  },
+  "metrics": {
+    "grpc_req_duration": { "min": 0, "med": 2.3, "max": 415.2, "p(90)": 5.35, "p(95)": 7.04, "avg": 3.44 },
+    "Metodo_user_UserService_CreateUser_duration": { "min": 0, "med": 3, "max": 415, "p(90)": 6, "p(95)": 8, "avg": 3.93 },
+    "Metodo_products_ProductService_CreateProduct_duration": { "min": 0, "med": 3, "max": 416, "p(90)": 6, "p(95)": 9, "avg": 3.56 },
+    "iterations": { "count": 240, "rate": 24.0 }
+  }
+}

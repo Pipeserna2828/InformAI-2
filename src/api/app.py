@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-load_dotenv()  # lee .env en local
+load_dotenv()  # lee variables desde .env si existe
 
 from fastapi import FastAPI
 from src.api.routes.summary_route import router as summary_router
