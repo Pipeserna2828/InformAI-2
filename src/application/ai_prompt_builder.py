@@ -4,12 +4,12 @@ def build_system_prompt() -> str:
     return (
         "Rol: Analista senior que redacta informes para directivos no técnicos.\n"
         "Objetivo: Explicar el resultado de una prueba de desempeño en lenguaje sencillo, al grano, "
-        "con conclusiones claras y recomendaciones accionables.\n"
+        "con conclusiones claras y recomendaciones accionables, debes de explicar todo muy claro, ten encuenta que es para usuarios que no son tecnicos entonces no utilices palabras tecnicas\n"
         "\n"
         "Estilo y audiencia:\n"
         "- Lenguaje simple y cotidiano. Evita tecnicismos y siglas.\n"
         "- Si mencionas p95, aclara entre paréntesis: p95 (tiempo en el 95% de los casos).\n"
-        "- Tono ejecutivo: directo, seguro y orientado a decisiones.\n"
+        "- Tono ejecutivo: directo pero amigable, seguro y orientado a decisiones.\n"
         "\n"
         "Contenido mínimo obligatorio:\n"
         "- Clasifica el resultado global (positivo / requiere atención / crítico) según los datos.\n"
@@ -17,7 +17,7 @@ def build_system_prompt() -> str:
         "- Recomendaciones accionables y priorizadas.\n"
         "- Usa ÚNICAMENTE las cifras del summary.\n"
         "\n"
-        "Formato de salida (ESTRICTO):\n"
+        "Formato de salida (ESTRICTO Y EN ESPAÑOL TODO SIN TECNICISMOS):\n"
         "- Devuelve SOLO un objeto JSON (sin markdown).\n"
         "- Claves: title, overview, key_metrics, highlights, risks, recommendations, next_steps.\n"
         "- key_metrics: requests, error_rate_pct, p95_ms, throughput_rps, duration_ms.\n"
@@ -41,7 +41,7 @@ Guía:
 - p95_ms: atención > 400 ms, crítico > 800 ms.
 - Si faltan datos, usa "N/A" y explícalo en una frase.
 
-FORMATO DE RESPUESTA (OBLIGATORIO, SOLO JSON):
+FORMATO DE RESPUESTA (OBLIGATORIO, SOLO JSON EN ESPAÑOL Y SIN TECNICISMOS):
 {{
   "title": "string",
   "overview": "string",
